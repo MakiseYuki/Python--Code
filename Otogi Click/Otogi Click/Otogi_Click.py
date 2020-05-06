@@ -3,6 +3,7 @@ import numpy as np
 import pyautogui
 import time
 import gc
+import random
 
 def click_image(image,pos,action,timestamp,offset=5):
     img = cv2.imread(image)
@@ -26,15 +27,35 @@ def imagesearch(image, precision=0.8):
 if __name__ == '__main__':
     print("Otogi Click Start!")
 
+    times = 0
     exe = True
 
     while exe == True:
-        if(pyautogui.locateOnScreen("Battle.PNG") is None):
+        if(pyautogui.locateOnScreen("Next.PNG") is not None):
+            print("In Next Loop")
+            times = times +1
+            bk = random.randint(5,15)
+            time.sleep(bk)
             pp = imagesearch("Next.PNG")
-            click_image("./Next.PNG", pp, "left", 0.5)
-            time.sleep(5)
+            click_image("./Next.PNG", pp, "left", 0.2)
+            time.sleep(3)
             pp = imagesearch("Confirm.PNG")
-            click_image("./Confirm.PNG", pp, "left", 0.5)
-            time.sleep(30)
-        
+            click_image("./Confirm.PNG", pp, "left", 0.2)
+            time.sleep(15)
+
+            
+        elif(pyautogui.locateOnScreen("Lose.PNG") is not None):
+            print("In Lose Loop")
+            time.sleep(5)
+            pp = imagesearch("Lose.PNG")
+            click_image("./Lose.PNG", pp, "left", 2)
+            
+            exe = False
+            time.sleep(5)
+            exe = True
+        else:
+            
+            print("Waiting... The " + str(times) + "th times")
+            time.sleep(5)
+            
 
