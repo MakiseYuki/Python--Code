@@ -38,7 +38,7 @@ if __name__ == '__main__':
             time.sleep(bk)
             pp = imagesearch("Next.PNG")
             click_image("./Next.PNG", pp, "left", 0.2)
-            time.sleep(3)
+            time.sleep(5)
             pp = imagesearch("Confirm.PNG")
             click_image("./Confirm.PNG", pp, "left", 0.2)
             time.sleep(15)
