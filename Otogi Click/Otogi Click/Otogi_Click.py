@@ -57,5 +57,12 @@ if __name__ == '__main__':
             
             print("Waiting... The " + str(times) + "th times")
             time.sleep(5)
+            if(pyautogui.locateOnScreen("Cancel.PNG") is not None):
+                print("Interrupt")
+                pp = imagesearch("Cancel.PNG")
+                click_image("./Cancel.PNG", pp, "left", 0.2)
+                time.sleep(5)
+            
+
             
 
