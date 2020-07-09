@@ -22,6 +22,13 @@ class Solution(object):
                 f2 = ans
             return ans
 
+    def twoSum(self, nums: List[int], target: int)-> List[int]
+        for i in range(len(nums)):
+            diff = target - nums[i]
+            if nums.__contains__(diff) and nums.index(diff) != i:
+                return [i, nums.index(diff)]
+                
+
 class MyHashMap:
 
     def __init__(self):
