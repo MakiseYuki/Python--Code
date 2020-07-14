@@ -27,7 +27,17 @@ class Solution(object):
             diff = target - nums[i]
             if nums.__contains__(diff) and nums.index(diff) != i:
                 return [i, nums.index(diff)]
-                
+
+    def firstUniqChar(self, s: str) -> int:
+        min_index = len(s) + 1
+        
+        for char in set(s):
+            if s.count(char) == 1:
+                min_index = min(s.index(char),min_index)
+        if min_index == len(s) + 1:
+            min_index = -1
+        return min_index
+
 
 class MyHashMap:
 
