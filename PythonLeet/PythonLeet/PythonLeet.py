@@ -22,12 +22,6 @@ class Solution(object):
                 f2 = ans
             return ans
 
-    def twoSum(self, nums: List[int], target: int)-> List[int]
-        for i in range(len(nums)):
-            diff = target - nums[i]
-            if nums.__contains__(diff) and nums.index(diff) != i:
-                return [i, nums.index(diff)]
-
     def firstUniqChar(self, s: str) -> int:
         min_index = len(s) + 1
         
@@ -37,6 +31,21 @@ class Solution(object):
         if min_index == len(s) + 1:
             min_index = -1
         return min_index
+
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        if not strs:
+            return ""
+        l = min(len(x) for x in strs)
+        lcp = strs[0][:l]
+        for i in range(1, len(strs)):
+            while l >= 0 and lcp != strs[i][:l]:
+                l -= 1
+                lcp = strs[0][:l]
+        return lcp
 
 
 class MyHashMap:
@@ -75,6 +84,7 @@ class MyHashMap:
         self.hashmap[primary][secondary] = -1
 
 if __name__ == "__main__":
+    print("Leet Code Practice")
     alg = Solution()
-    ans = alg.climbStairs(5)
-    print(str(ans))
+    s = "loveleetcode"
+    print(alg.firstUniqChar(s))
